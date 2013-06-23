@@ -65,7 +65,7 @@ module Bootloader
         config = Bootloader.load_config(filename)
         unless config.to_a.empty?
           Object.const_set(module_name, config)
-          puts "Loaded #{module_name} from config/#{filename}.yml"
+          # puts "Loaded #{module_name} from config/#{filename}.yml"
         end
       end
     end
@@ -138,7 +138,7 @@ module Bootloader
     mongoid_config_path = "#{root_path}/config/mongoid.yml"
     if File.exists?(mongoid_config_path)
       Mongoid.load!(mongoid_config_path, env)
-      puts "Loaded mongoid config"
+      # puts "Loaded mongoid config"
     end
   end
 
@@ -148,4 +148,4 @@ module Bootloader
 
 end
 
-Bootloader.puts "Running in #{Bootloader.env} mode"
+# Bootloader.puts "Running in #{Bootloader.env} mode"

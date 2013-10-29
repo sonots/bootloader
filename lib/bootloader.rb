@@ -96,6 +96,7 @@ module Bootloader
 
   # Load all the files under the given paths.
   def load_dir(*paths)
+    File.join(root_path, *paths, 'base.rb').tap {|base| require base if File.exists?(base) }
     Dir.glob(File.join(root_path, *paths, '*.rb')).each { |f| require f }
   end
 
